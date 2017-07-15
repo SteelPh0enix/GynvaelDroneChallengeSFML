@@ -1,21 +1,14 @@
 TEMPLATE = app
-CONFIG(debug, debug|release) {
-    win32:CONFIG += console
-}
-CONFIG(release, debug|release) {
-    win32:CONFIG += windows
-}
-CONFIG += c++14
+CONFIG += c++14 console
 CONFIG -= app_bundle qt
 
-INCLUDEPATH += C:\SFML-master\include C:\boost_1_64_0
-LIBS += -lboost_system
+INCLUDEPATH += C:\SFML-master\include
 
 CONFIG(debug, debug|release) {
-    win32:LIBS += -LC:\SFML-master\build\debug\lib -lsfml-window-d -lsfml-system-d -lsfml-graphics-d -lsfml-network-d
+    LIBS += -lsfml-window-d -lsfml-system-d -lsfml-graphics-d -lsfml-network-d
 }
 CONFIG(release, debug|release) {
-    win32:LIBS += -LC:\SFML-master\build\release\lib -lsfml-window -lsfml-system -lsfml-graphics -lsfml-network -lsfml-main
+    LIBS += -lsfml-window -lsfml-system -lsfml-graphics -lsfml-network
 }
 
 SOURCES += main.cpp \
